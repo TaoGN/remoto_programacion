@@ -19,7 +19,7 @@ public class GestionPedido {
     private Producto producto1;
     private Producto producto2;
     private double importeTotal;
-    private PasarelaDePago pago;
+    //private PasarelaDePago pago;
     private String estado;
 
     /**
@@ -30,8 +30,12 @@ public class GestionPedido {
     public GestionPedido(Cliente cliente) {
         this.cliente = cliente;
         this.importeTotal = 0;
-        this.pago = null;
+        //this.pago = null;
         this.estado = "PAGADO";
+    }
+    
+    public GestionPedido() {
+
     }
     
     public void realizarPedido() {
@@ -144,6 +148,7 @@ public class GestionPedido {
     PasarelaDePago.procesarPago(precioComida + precioBebida);
     Ticket.generarDocumento(cliente, comidaSeleccionada, cantidadComida, bebidaSeleccionada, cantidadBebida, precioComida + precioBebida, nombreArchivo);
     
+    scanner.close();  
     }
     /**
      * Método para pagar el pedido.

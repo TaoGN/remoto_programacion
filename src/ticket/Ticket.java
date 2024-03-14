@@ -11,6 +11,7 @@ import java.io.IOException;
 public class Ticket {
 
     /**
+     * @author Aleja
      * Genera un documento de texto con los datos del cliente y la combinación elegida.
      *
      * @param cliente          Objeto Cliente con los datos del cliente.

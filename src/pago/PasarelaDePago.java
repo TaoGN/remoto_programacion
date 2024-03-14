@@ -2,8 +2,18 @@ package pago;
 
 import java.util.Scanner;
 
+/**
+ * @author Aleja
+ * La clase PasarelaDePago proporciona funcionalidades para procesar pagos en la pizzería.
+ * Permite al usuario seleccionar entre pagar en efectivo o con tarjeta y realiza el procesamiento correspondiente.
+ */
 public class PasarelaDePago {
 
+    /**
+     * Procesa el pago de acuerdo al importe total proporcionado.
+     *
+     * @param importeTotal El importe total a pagar.
+     */
     public static void procesarPago(double importeTotal) {
         Scanner sc = new Scanner(System.in);
 
@@ -24,6 +34,11 @@ public class PasarelaDePago {
 		sc.close();
 	}
 
+    /**
+     * Procesa el pago en efectivo.
+     *
+     * @param importeTotal El importe total a pagar.
+     */
 	private static void pagoEnEfectivo(double importeTotal) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Ha seleccionado pagar en efectivo \nPor favor indique la cantidad que va entregar");
@@ -41,7 +56,7 @@ public class PasarelaDePago {
 				double cantidadBilletes = Math.floor(resultado / valor);
 				System.out.println("Número de billetes de " + valor + " euros: " + (int)cantidadBilletes);
 				resultado -= cantidadBilletes * valor;
-				resultado = Math.round(resultado * 100.0) / 100.0; // Redondear
+				resultado = Math.round(resultado * 100.0) / 100.0;
 			}
 		}
 		
@@ -52,12 +67,17 @@ public class PasarelaDePago {
 				double cantidadMonedas = Math.floor(resultado / valor);
 				System.out.println("Número de monedas de " + valor + " euros: " + (int)cantidadMonedas);
 				resultado -= cantidadMonedas * valor;
-				resultado = Math.round(resultado * 100.0) / 100.0; // Redondear
+				resultado = Math.round(resultado * 100.0) / 100.0;
 			}
 		}
 		sc.close();
 	}
 
+    /**
+     * Procesa el pago con tarjeta.
+     *
+     * @param sc El objeto Scanner para leer la entrada del usuario.
+     */
 	private static void pagoConTarjeta(Scanner sc) {
 	    String tarjeta;
 	    while (true) {
