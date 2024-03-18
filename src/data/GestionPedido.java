@@ -40,52 +40,54 @@ public class GestionPedido {
     
     public void realizarPedido() {
         Scanner scanner = new Scanner(System.in);
+        //boolean seguirPidiendo = true;
+        
+        //while (seguirPidiendo) {
+	    // Mostrar los detalles de los productos de comida
+	    System.out.println("\nSelecciona entre una de nuestras opciones:\n");
+	    System.out.println("Marque 1 para: " + Comida.NAPOLITANA.getNombre() + ", Precio: " + Comida.NAPOLITANA.getPrecio() + "€");
+	    System.out.println("Marque 2 para: " + Comida.CARBONARA.getNombre() + ", Precio: " + Comida.CARBONARA.getPrecio() + "€");
+	    System.out.println("Marque 3 para: " + Comida.FUGAZZA.getNombre() + ", Precio: " + Comida.FUGAZZA.getPrecio() + "€");
+	    System.out.println("Marque 4 para: " + Comida.CALZONE.getNombre() + ", Precio: " + Comida.CALZONE.getPrecio() + "€");
+	    System.out.println("Marque 5 para: " + Comida.PROSCIUTTO.getNombre() + ", Precio: " + Comida.PROSCIUTTO.getPrecio() + "€");
     
-    // Mostrar los detalles de los productos de comida
-    System.out.println("\nSelecciona entre una de nuestras dos opciones:\n");
-    System.out.println("Marque 1 para: " + Comida.NAPOLITANA.getNombre() + ", Precio: " + Comida.NAPOLITANA.getPrecio() + "€");
-    System.out.println("Marque 2 para: " + Comida.CARBONARA.getNombre() + ", Precio: " + Comida.CARBONARA.getPrecio() + "€");
-    System.out.println("Marque 3 para: " + Comida.FUGAZZA.getNombre() + ", Precio: " + Comida.FUGAZZA.getPrecio() + "€");
-    System.out.println("Marque 4 para: " + Comida.CALZONE.getNombre() + ", Precio: " + Comida.CALZONE.getPrecio() + "€");
-    System.out.println("Marque 5 para: " + Comida.PROSCIUTTO.getNombre() + ", Precio: " + Comida.PROSCIUTTO.getPrecio() + "€");
-    
-    // Capturar la opción de comida seleccionada
-    int opcionComida = scanner.nextInt();
-    scanner.nextLine();
-    
-    int cantidadComida = 0;
-    Comida comidaSeleccionada = null;
-    switch (opcionComida) {
-        case 1:
-            System.out.println("Ingrese la cantidad que desea:");
-            cantidadComida = scanner.nextInt();
-            comidaSeleccionada = Comida.NAPOLITANA;
-            break;
-        case 2:
-            System.out.println("Ingrese la cantidad que desea:");
-            cantidadComida = scanner.nextInt();
-            comidaSeleccionada = Comida.CARBONARA;
-            break;
-        case 3:
-            System.out.println("Ingrese la cantidad que desea:");
-            cantidadComida = scanner.nextInt();
-            comidaSeleccionada = Comida.FUGAZZA;
-            break;
-        case 4:
-            System.out.println("Ingrese la cantidad que desea:");
-            cantidadComida = scanner.nextInt();
-            comidaSeleccionada = Comida.CALZONE;
-            break;
-        case 5:
-            System.out.println("Ingrese la cantidad que desea:");
-            cantidadComida = scanner.nextInt();
-            comidaSeleccionada = Comida.PROSCIUTTO;
-            break;
-        default:
-            System.out.println("¡Opción seleccionada no válida! Por favor elija una de las opciones mostradas");
-            break;
-    }
-    
+	    // Capturar la opción de comida seleccionada
+	    int opcionComida = scanner.nextInt();
+	    scanner.nextLine();
+	    
+	    int cantidadComida = 0;
+	    Comida comidaSeleccionada = null;
+	    switch (opcionComida) {
+	        case 1:
+	            System.out.println("Ingrese la cantidad que desea:");
+	            cantidadComida = scanner.nextInt();
+	            comidaSeleccionada = Comida.NAPOLITANA;
+	            break;
+	        case 2:
+	            System.out.println("Ingrese la cantidad que desea:");
+	            cantidadComida = scanner.nextInt();
+	            comidaSeleccionada = Comida.CARBONARA;
+	            break;
+	        case 3:
+	            System.out.println("Ingrese la cantidad que desea:");
+	            cantidadComida = scanner.nextInt();
+	            comidaSeleccionada = Comida.FUGAZZA;
+	            break;
+	        case 4:
+	            System.out.println("Ingrese la cantidad que desea:");
+	            cantidadComida = scanner.nextInt();
+	            comidaSeleccionada = Comida.CALZONE;
+	            break;
+	        case 5:
+	            System.out.println("Ingrese la cantidad que desea:");
+	            cantidadComida = scanner.nextInt();
+	            comidaSeleccionada = Comida.PROSCIUTTO;
+	            break;
+	        default:
+	            System.out.println("¡Opción seleccionada no válida! Por favor elija una de las opciones mostradas");
+	            break;
+	    }
+	    
     // Calcular el precio de la comida seleccionada
     double precioComida = comidaSeleccionada.getPrecio() * cantidadComida;
   
@@ -147,7 +149,7 @@ public class GestionPedido {
     
     PasarelaDePago.procesarPago(precioComida + precioBebida);
     Ticket.generarDocumento(cliente, comidaSeleccionada, cantidadComida, bebidaSeleccionada, cantidadBebida, precioComida + precioBebida, nombreArchivo);
-    
+     
     scanner.close();  
     }
     /**

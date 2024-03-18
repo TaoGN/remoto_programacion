@@ -3,6 +3,7 @@ package app;
 import data.GestionClientes;
 import data.GestionPedido;
 import data.Mensajes;
+import logic.Cliente;
 import java.util.Scanner;
 
 /**
@@ -24,6 +25,9 @@ public class Aplicacion {
         System.out.println("¿Que desea?\n");
         
         boolean opcionSeleccionada = false;
+        
+        GestionClientes gestionClientes = new GestionClientes();
+        GestionPedido gestionPedido = new GestionPedido();
 
         // Bucle principal para manejar las opciones del menú
         while (!opcionSeleccionada) {
@@ -33,9 +37,6 @@ public class Aplicacion {
             
             int seleccion = scanner.nextInt();
             scanner.nextLine();
-        
-            GestionClientes gestionClientes = new GestionClientes();     
-            GestionPedido gestionPedido = new GestionPedido();
 
             switch (seleccion) {      	
                 case 1:
@@ -51,7 +52,8 @@ public class Aplicacion {
                 case 3:
                     // Realizar un pedido
                     System.out.println("Ha seleccionado realizar un pedido, para ello primero necesitamos conocer sus datos:");
-                    gestionClientes.crearCliente();
+                    Cliente cliente = gestionClientes.crearCliente(); //Creacion objeto cliente utilizando el método crearCliente de la clase gestionClientes
+                    gestionPedido.agregarCliente(cliente); //Pasa el objeto cliente al metodo agregarCliente para asignar el cliente al pedido actual
                     gestionPedido.realizarPedido();
                     opcionSeleccionada = true; // Establecer la opción seleccionada como verdadera para salir del bucle
                     break;

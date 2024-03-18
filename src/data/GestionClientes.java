@@ -37,8 +37,6 @@ public class GestionClientes {
         System.out.println("Por favor ingrese su dirección:");
         String direccion = scanner.nextLine();
         
-        scanner.close();
-
         return new Cliente(nombre, apellidos, new Date(), telefono, direccion, "");
     }
 
