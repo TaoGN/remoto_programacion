@@ -19,10 +19,9 @@ public class Aplicacion {
      * @param args Los argumentos de la línea de comandos (no utilizados).
      */
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+       Scanner scanner = new Scanner(System.in);
         
-        System.out.println("<<<<< ¡Bienvenido a pizzeria Alessandro! >>>>>\n");
-        System.out.println("¿Que desea?\n");
+       Mensajes.mensajeInicio();
         
         boolean opcionSeleccionada = false;
         
@@ -31,28 +30,21 @@ public class Aplicacion {
 
         // Bucle principal para manejar las opciones del menú
         while (!opcionSeleccionada) {
-            System.out.println("Seleccione 1 para ver nuestras promociones.");
-            System.out.println("Seleccione 2 para ver información sobre nuestra pizzeria.");
-            System.out.println("Seleccione 3 para realizar un pedido.");
+            Mensajes.mensajeOpciones();
             
             int seleccion = scanner.nextInt();
             scanner.nextLine();
 
             switch (seleccion) {      	
                 case 1:
-                    // Mostrar promociones
-                    System.out.println("Ha seleccionado ver nuestras promociones:\n");
                     Mensajes.promocion();
                     break;
                 case 2:
-                    // Mostrar información sobre la pizzería
-                    System.out.println("Ha seleccionado ver información sobre nuestra pizzeria:\n");
                     Mensajes.informacion();
                     break;
                 case 3:
-                    // Realizar un pedido
                     System.out.println("Ha seleccionado realizar un pedido, para ello primero necesitamos conocer sus datos:");
-                    Cliente cliente = gestionClientes.crearCliente(); //Creacion objeto cliente utilizando el método crearCliente de la clase gestionClientes
+                    Cliente cliente = gestionClientes.crearCliente();
                     gestionPedido.agregarCliente(cliente); //Pasa el objeto cliente al metodo agregarCliente para asignar el cliente al pedido actual
                     gestionPedido.realizarPedido();
                     opcionSeleccionada = true; // Establecer la opción seleccionada como verdadera para salir del bucle

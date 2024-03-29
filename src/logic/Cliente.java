@@ -3,7 +3,6 @@
  */
 package logic;
 import java.util.Date;
-import data.GestionPedido;
 
 /**
  * @author Aleja 
@@ -18,7 +17,6 @@ public class Cliente {
 	private String telefono;
 	private String direccion;
 	private String historial;
-	public static int dimesionArray;
 
 	// Constructores
 	/**
@@ -29,7 +27,7 @@ public class Cliente {
 	}
 
 	/**
-	 * Constructor clase producto con 6 parametros
+	 * Constructor clase producto con 6 parámetros
 	 * 
 	 * @param nombre
 	 * @param apellidos
@@ -42,30 +40,10 @@ public class Cliente {
 		 this.nombre = nombre.toLowerCase();
 		 this.apellidos = apellidos.toUpperCase();
 		 this.fechaDeAlta = (fechaDeAlta != null) ? fechaDeAlta : new Date();
-		 this.telefono = telefono; // Asignar el valor de telefono primero
+		 this.telefono = telefono;
 		 this.direccion = direccion;
 		 this.historial = "";
-		    
-		 // Luego validar el teléfono
-		 this.telefono = validarTelefono(telefono) ? telefono : null;
-		}
-	
-	public boolean validarTelefono(String telefono) {
-	    // Verificar si el teléfono tiene 9 dígitos numéricos
-	    if (telefono.length() != 9)
-	        return false;
-
-	    // Verificar si el primer dígito es 6, 7, 8 o 9
-	    char primerDigito = telefono.charAt(0);
-	    if (primerDigito != '6' && primerDigito != '7' && primerDigito != '8' && primerDigito != '9')
-	        return false;
-
-	    return true;
 	}
-
-	    public void agregarPedido(GestionPedido pedido) {
-	        historial += pedido.getCodigoPedido() + ",";
-	    }
 
 	// Métodos Get and Set
 

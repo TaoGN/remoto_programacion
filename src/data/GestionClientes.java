@@ -10,7 +10,7 @@ import java.util.Scanner;
  * Permite la creación de objetos Cliente con información ingresada por el usuario.
  */
 public class GestionClientes {
-   
+	
     /**
      * Crea un nuevo cliente con la información ingresada por el usuario.
      *
@@ -25,14 +25,7 @@ public class GestionClientes {
         System.out.println("Por favor ingrese sus apellidos:");
         String apellidos = scanner.nextLine().toUpperCase();
 
-        System.out.println("Por favor ingrese su número de teléfono:");
-        String telefono = scanner.nextLine();
-
-        // Validar el formato del número de teléfono
-        while (!validarTelefono(telefono)) {
-            System.out.println("Número de teléfono no válido, el teléfono ha de tener una longitud de 9 dígitos y empezar por 6, 7, 8 o 9. Por favor, inténtelo de nuevo.");
-            telefono = scanner.nextLine();
-        }
+        String telefono = validarTelefono(scanner);
 
         System.out.println("Por favor ingrese su dirección:");
         String direccion = scanner.nextLine();
@@ -41,20 +34,41 @@ public class GestionClientes {
     }
 
     /**
-     * Valida el formato del número de teléfono.
+     * Valida el formato del número de teléfono ingresado por el usuario.
+     *
+     * @param scanner El objeto Scanner para leer la entrada del usuario.
+     * @return El número de teléfono validado.
+     */
+    private String validarTelefono(Scanner scanner) {
+        String telefono;
+        
+        do {
+            System.out.println("Por favor ingrese su número de teléfono:");
+            telefono = scanner.nextLine();
+            
+            if (!esTelefonoValido(telefono)) {
+                System.out.println("Número de teléfono no válido, el teléfono ha de tener una longitud de 9 dígitos y empezar por 6, 7, 8 o 9. Por favor, inténtelo de nuevo.");
+            }
+        } while (!esTelefonoValido(telefono));
+        
+        return telefono;
+    }
+
+    /**
+     * Verifica si el formato del número de teléfono es válido.
      *
      * @param telefono El número de teléfono a validar.
      * @return true si el número de teléfono es válido, false de lo contrario.
      */
-    private boolean validarTelefono(String telefono) {
-        // Verificar si el teléfono tiene 9 dígitos numéricos
-        if (telefono.length() != 9)
+    private boolean esTelefonoValido(String telefono) {
+        if (telefono.length() != 9) {
             return false;
+        }
 
-        // Verificar si el primer dígito es 6, 7, 8 o 9
         char primerDigito = telefono.charAt(0);
-        if (primerDigito != '6' && primerDigito != '7' && primerDigito != '8' && primerDigito != '9')
+        if (primerDigito != '6' && primerDigito != '7' && primerDigito != '8' && primerDigito != '9') {
             return false;
+        }
 
         return true;
     }
