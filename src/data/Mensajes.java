@@ -57,7 +57,10 @@ public class Mensajes {
     public static void mostrarOpcionesComida() {
         System.out.println("\nSelecciona entre una de nuestras opciones:\n");
         System.out.println("Marque 1 para: " + Comida.NAPOLITANA.getNombre() + ", Precio: " + Comida.NAPOLITANA.getPrecio() + "€");
-        // ... (resto del método)
+        System.out.println("Marque 2 para: " + Comida.CARBONARA.getNombre() + ", Precio: " + Comida.CARBONARA.getPrecio() + "€");
+        System.out.println("Marque 3 para: " + Comida.FUGAZZA.getNombre() + ", Precio: " + Comida.FUGAZZA.getPrecio() + "€");
+        System.out.println("Marque 4 para: " + Comida.CALZONE.getNombre() + ", Precio: " + Comida.CALZONE.getPrecio() + "€");
+        System.out.println("Marque 5 para: " + Comida.PROSCIUTTO.getNombre() + ", Precio: " + Comida.PROSCIUTTO.getPrecio() + "€");
     }
 
     /**
@@ -66,7 +69,9 @@ public class Mensajes {
     public static void mostrarOpcionesBebida() {
         System.out.println("\nSeleccione una opción de bebida:");
         System.out.println("1. " + Bebida.REFRESCO.getNombre() + ", Precio: " + Bebida.REFRESCO.getPrecio() + "€");
-        // ... (resto del método)
+        System.out.println("2. " + Bebida.AGUA.getNombre() + ", Precio: " + Bebida.AGUA.getPrecio() + "€");
+        System.out.println("3. " + Bebida.PERONI.getNombre() + ", Precio: " + Bebida.PERONI.getPrecio() + "€");
+        System.out.println("4. " + Bebida.MORETTI.getNombre() + ", Precio: " + Bebida.MORETTI.getPrecio() + "€");
     }
 
     /**
